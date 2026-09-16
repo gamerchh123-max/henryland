@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { background-color: black;
+	overflow:hidden;
+	}
+</style>
+</head>
+<body>
+
+
+<img src = "bigh.png" alt = "henry" id = "hen">
+
+<script>
+	let vertdir = true
+	let horzdir = true
+	let xpos = 0;
+	let xos = xpos +"px";
+	let ypos = 0;
+	let yos = ypos +"px";
+	function go() {
+
+		console.log(window.innerWidth);
+		if (xpos > window.innerWidth-270) {horzdir = false;}
+		if (xpos < -10) {horzdir = true;}
+		if (horzdir == true) {xpos ++;}
+		if (horzdir == false) {xpos --;}
+
+		if (ypos > window.innerHeight-350) {vertdir = false;}
+		if (ypos < -10) {vertdir = true;}
+		if (vertdir == true) {ypos ++;}
+		if (vertdir == false) {ypos --;}
+
+		xos = xpos + "px"
+		yos = ypos + "px"
+	
+		document.getElementById('hen').style.transform = `translate(${xos},${yos})`;
+    }
+	let x = setInterval(go, 1);
+</script>
+
+</body>
+</html>
